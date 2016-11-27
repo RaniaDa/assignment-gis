@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Mapa</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" type="text/css" href="app.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <div id='map'></div>
+
+    <script src="app.js">
+    </script>
+
+    <div style="position: absolute; top: 0px; right: 20px; z-index: 10000;"><h2>Cyklo trasy v Bratislave a okolí</h2></div>
+    <input id= "l" type="button" class="button" value="Cez les" style="position: absolute; top: 50px; right: 20px; z-index: 10000">
+    <input id= "o" type="button" class="button" value="S možnosťami občerstvenia" style="position: absolute; top: 110px; right: 20px; z-index: 10000">
+    <input id= "v" type="button" class="button" value="V okolí vodných plôch" style="position: absolute; top: 170px; right: 20px; z-index: 10000">
+
+</body>
+</html>

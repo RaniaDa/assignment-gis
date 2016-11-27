@@ -1,27 +1,12 @@
-# General course assignment
+# Dokumentácia k zadaniu z predmetu PDT
 
-Build a map-based application, which lets the user see geo-based data on a map and filter/search through it in a meaningfull way. Specify the details and build it in your language of choice. The application should have 3 components:
+Vytvorili sme mapovú aplikáciu, ktorá umožňuje zobrazenie cyklotrás v Bratislave a jej okolí na základe viacerých kritérií. Vybrané kritéria sú nasledovné: 
+- cyklo trasy prechádzajúce cez les (čierna farba)
+- cyklo trasy, pri ktorých je najväčšia možnosť občerstvenia sa (žltá farba)
+- cyklo trasy prechádzajúce popri najväčšej vodnej ploche (červená farba)
 
-1. Custom-styled background map, ideally built with [mapbox](http://mapbox.com). Hard-core mode: you can also serve the map tiles yourself using [mapnik](http://mapnik.org/) or similar tool.
-2. Local server with [PostGIS](http://postgis.net/) and an API layer that exposes data in a [geojson format](http://geojson.org/).
-3. The user-facing application (web, android, ios, your choice..) which calls the API and lets the user see and navigate in the map and shows the geodata. You can (and should) use existing components, such as the Mapbox SDK, or [Leaflet](http://leafletjs.com/).
+## Architektúra
 
-## Example projects
-
-- Showing nearby landmarks as colored circles, each type of landmark has different circle color and the more interesting the landmark is, the bigger the circle. Landmarks are sorted in a sidebar by distance to the user. It is possible to filter only certain landmark types (e.g., castles).
-
-- Showing bicykle roads on a map. The roads are color-coded based on the road difficulty. The user can see various lists which help her choose an appropriate road, e.g. roads that cross a river, roads that are nearby lakes, roads that pass through multiple countries, etc.
-
-## Data sources
-
-- [Open Street Maps](https://www.openstreetmap.org/)
-
-## My project
-
-Fill in (either in English, or in Slovak):
-
-**Application description**: `<fill in>`
-
-**Data source**: `<fill in>`
-
-**Technologies used**: `<fill in>`
+Riešenie pozostáva z dvoch častí: aplikačnej a serverovej. 
+Serverová časť je definovaná Node.js serverom, ktorý implementuje prístup k Postgres databáze rozšírenej o PostGIS a poskytuje dáta z databázy cez REST vo formáte geoJSON, ktoré sa využívajú na zobrazenie v aplikácií.  Implementácia Geo query dopytujúcich sa na databázu sa nachádza v súbore „server.js“.
+Aplikačná časť využíva Mapbox API na zobrazenie mapy. Okrem toho sa cez Ajax dopytuje na server, ktorý vracia dáta vo formáte geoJSON, ktoré sa zobrazujú do mapy. Aplikačná časť pozostáva so súborov: „app.html“, „app.js“ a „app.css“.
